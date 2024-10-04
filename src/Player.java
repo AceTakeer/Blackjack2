@@ -1,28 +1,25 @@
 import java.util.Random;
-
+import java.util.ArrayList;
 
 
 public class Player{
     Random rand = new Random();
 
 //Variables
-    int deckSize;
-    int[] deck = new int[50];
+    ArrayList<Card> playerDeck = new ArrayList<Card>();
     int score;
     boolean isBust;
 
     public Player(){
-
-        deckSize = 2;
         score = 0;
-
     }
 
 //Gets
-    public int[] getDeck(){
-        return this.deck;
-    }
 
+    public ArrayList<Card> getPlayerDeck() {
+        return playerDeck;
+    }
+    
     public int getScore(){
         return this.score;
     }
@@ -39,24 +36,23 @@ public class Player{
     }
 
     public void addCard(){
-        
-        deck[deckSize] = rand.nextInt(11) + 2;
-        deckSize++;
 
+        int[] values = {1,2,3,4,5,6,7,8,9,10,11};
+        String[] cardSign = {"A","1","2","3","4","5","6","7","8","9","10","J","Q","K"};
+        String[] symbol = {"H","S","C","D"};
+        
+        Card newCard = new Card(values[rand.nextInt(values.length)],cardSign[rand.nextInt(values.length)],symbol[rand.nextInt(symbol.length)]);
+        playerDeck.add(newCard);
+        this.score += newCard.cardValue;
     }
 
     public void reset(){
-        for (int i: deck){
-            deck[i] = 0;
-        }
-        deckSize = 2;
+        
         isBust = false;
         score = 0;
+        playerDeck.clear();
+
     }
-
-
-
-
 
 
 }
