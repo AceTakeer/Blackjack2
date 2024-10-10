@@ -6,7 +6,7 @@ public class Player{
     Random rand = new Random();
 
 //Variables
-    ArrayList<Card> playerDeck = new ArrayList();
+    ArrayList<Card> playerDeck = new ArrayList<Card>();
     int score;
     boolean isBust;
 
@@ -52,6 +52,10 @@ public class Player{
         score = 0;
         playerDeck.clear();
 
+    }
+
+    public void setPlayerDeck(ArrayList<Card> playerDeck) {
+        this.playerDeck = playerDeck;
     }
 
 
