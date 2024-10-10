@@ -17,7 +17,6 @@ public class Card {
             case "C" -> this.cardSymbol = "Clubs";
 
             case "D" -> this.cardSymbol = "Diamonds";
-
         }
     }
 

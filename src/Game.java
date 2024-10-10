@@ -44,15 +44,21 @@ public class Game{
             dealer.addCard();
         }
 
+        //check if dealer score is a bust or not
+        if(dealer.getScore() > 21){
+            dealer.isBust = true;
+        }
+
         //Compare the two Scores
 
-        if(dealer.getScore() > player.getScore() || player.isBust == true){
-            System.out.printf("Dealer Score: %d\tPlayer Score: %d\tYOU LOSE!", dealer.getScore(),player.getScore());
-        } else if(dealer.getScore() == player.getScore()) {
+        if( (player.getBust() == true && dealer.getBust() == true) || (dealer.getScore() == player.getScore()) ){ // tie
             System.out.printf("Dealer Score: %d\tPlayer Score: %d\tPUSH!",dealer.getScore(),player.getScore());
-        } else {
+        } else if (dealer.getScore() > player.getScore() || player.isBust == true) { //Dealer win
+            System.out.printf("Dealer Score: %d\tPlayer Score: %d\tYOU LOSE!", dealer.getScore(),player.getScore());
+        } else if (dealer.getScore() < player.getScore() || dealer.isBust == true) { //player win
             System.out.printf("Dealer Score: %d\tPlayer Score: %d\tYOU WIN!",dealer.getScore(),player.getScore());
         }
+
 
     }
     public static void main(String[] args) {
