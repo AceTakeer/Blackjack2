@@ -51,11 +51,11 @@ public class Game{
 
         //Compare the two Scores
 
-        if( (player.getBust() == true && dealer.getBust() == true) || (dealer.getScore() == player.getScore()) ){ // tie
+        if( (dealer.getScore() == player.getScore()) ){ // tie
             System.out.printf("Dealer Score: %d\tPlayer Score: %d\tPUSH!",dealer.getScore(),player.getScore());
-        } else if (dealer.getScore() > player.getScore() || player.isBust == true) { //Dealer win
+        } else if (dealer.getScore() > player.getScore() || player.getBust() == true) { //Dealer win
             System.out.printf("Dealer Score: %d\tPlayer Score: %d\tYOU LOSE!", dealer.getScore(),player.getScore());
-        } else if (dealer.getScore() < player.getScore() || dealer.isBust == true) { //player win
+        } else if (dealer.getScore() < player.getScore() || dealer.getBust() == true) { //player win
             System.out.printf("Dealer Score: %d\tPlayer Score: %d\tYOU WIN!",dealer.getScore(),player.getScore());
         }
 
