@@ -5,7 +5,8 @@ public class Card {
 
     public Card(int val, String typ, String sym){
         this.cardValue = val;
-        this.cardType = typ; 
+        this.cardType = typ;
+        this.cardSymbol = sym; 
 
         switch(sym){
 
@@ -18,5 +19,17 @@ public class Card {
             case "D" -> this.cardSymbol = "Diamonds";
 
         }
+    }
+
+    public int getCardValue() {
+        return this.cardValue;
+    }
+
+    public String getCardType() {
+        return cardType;
+    }
+
+    public String getCardSymbol() {
+        return cardSymbol;
     }
 }

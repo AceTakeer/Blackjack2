@@ -1,12 +1,12 @@
-import java.util.Random;
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class Player{
     Random rand = new Random();
 
 //Variables
-    ArrayList<Card> playerDeck = new ArrayList<Card>();
+    ArrayList<Card> playerDeck = new ArrayList();
     int score;
     boolean isBust;
 

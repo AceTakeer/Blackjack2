@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Game{
@@ -16,8 +15,6 @@ public class Game{
         dealer.addCard();
 
         
-        System.out.println(player.score);
-        System.out.println(dealer.score);
 
         //Player Turn
         System.out.printf("Your score is currently %d. Enter 'H' to hit or 'S' to Stand!\n", player.getScore());
