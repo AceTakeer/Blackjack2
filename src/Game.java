@@ -64,6 +64,14 @@ public class Game{
 
         }
 
+        System.out.printf("\n\n Play again? ('Y' to play again and 'N' to not)\n");
+        C = input.next().charAt(0);
+
+        if(C == 'Y'){
+            player.reset();
+            dealer.reset();
+            gameStart();
+        }
 
     }
     public static void main(String[] args) {
