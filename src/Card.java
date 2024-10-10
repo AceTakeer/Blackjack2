@@ -9,14 +9,17 @@ public class Card {
         this.cardSymbol = sym; 
 
         switch(sym){
-
-            case "H" -> this.cardSymbol = "Hearts";
-
-            case "S" -> this.cardSymbol = "Spades";
-
-            case "C" -> this.cardSymbol = "Clubs";
-
-            case "D" -> this.cardSymbol = "Diamonds";
+        case "C":
+            this.cardSymbol = "Clubs";
+            break;
+         case "D":
+            this.cardSymbol = "Diamonds";
+            break;
+         case "H":
+            this.cardSymbol = "Hearts";
+            break;
+         case "S":
+            this.cardSymbol = "Spades";
         }
     }
 
