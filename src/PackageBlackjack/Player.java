@@ -1,3 +1,6 @@
+package PackageBlackjack;
+
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -44,6 +47,11 @@ public class Player{
         Card newCard = new Card(values[rand.nextInt(values.length)],cardSign[rand.nextInt(values.length)],symbol[rand.nextInt(symbol.length)]);
         playerDeck.add(newCard);
         this.score += newCard.cardValue;
+        
+        if(this.score > 21) {
+        	this.isBust = true;
+        }
+        
     }
 
     public void reset(){

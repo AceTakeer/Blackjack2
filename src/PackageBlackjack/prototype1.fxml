@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PackageBlackjack.BlackjackController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label fx:id="playerTotal" layoutX="416.0" layoutY="337.0" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="281.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Downloads/svg_playing_cards/fronts/png_96_dpi/clubs_2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="400.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Downloads/svg_playing_cards/fronts/png_96_dpi/clubs_4.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="281.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Downloads/svg_playing_cards/fronts/png_96_dpi/clubs_7.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="400.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Downloads/svg_playing_cards/fronts/png_96_dpi/diamonds_king.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="giveUpButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#giveUpButtonPressed" text="Give Up" />
+            <Label fx:id="winTotalCounter" layoutX="703.0" layoutY="19.0" text="Win Total:" />
+            <Label layoutX="377.0" layoutY="177.0" text="Total:" />
+            <Label layoutX="377.0" layoutY="337.0" text="Total:" />
+            <Pane layoutX="285.0" layoutY="204.0" prefHeight="120.0" prefWidth="214.0">
+               <children>
+                  <Button fx:id="hitButton" layoutX="45.0" layoutY="40.0" mnemonicParsing="false" onAction="#hitButtonPressed" text="Hit" visible="false" />
+                  <Button fx:id="standButton" layoutX="125.0" layoutY="40.0" mnemonicParsing="false" onAction="#standButtonPressed" text="Stand" visible="false" />
+               </children>
+            </Pane>
+            <Label fx:id="dealerTotal" layoutX="416.0" layoutY="177.0" />
+            <Button fx:id="startButton" layoutX="374.0" layoutY="477.0" mnemonicParsing="false" onAction="#startButtonPressed" text="START" />
+            <Label fx:id="gameTitleText" layoutX="343.0" layoutY="450.0" text="Blackjack Remastered" />
+            <Label fx:id="winTotal" layoutX="763.0" layoutY="19.0" text="0" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
