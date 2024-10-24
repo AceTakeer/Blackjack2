@@ -8,9 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Game extends Application{
-
-
-    @Override
+	
 	public void start(Stage primary) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("prototype1.fxml"));
 		Scene scene = new Scene(root);
@@ -18,6 +16,8 @@ public class Game extends Application{
 		primary.setScene(scene);
 		primary.show();
 	}
+	
+	
     
 }
 

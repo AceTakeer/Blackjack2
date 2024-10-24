@@ -1,29 +1,34 @@
 package PackageBlackjack;
 
+import java.util.Random;
 
 public class Card {
     int cardValue;
     String cardType;
     String cardSymbol;
+    Random rand = new Random();
+    
+    public Card(String suit, String rank){
+    	
+        this.cardType = rank;
+        this.cardSymbol = suit; 
 
-    public Card(int val, String typ, String sym){
-        this.cardValue = val;
-        this.cardType = typ;
-        this.cardSymbol = sym; 
-
-        switch(sym){
-        case "C":
-            this.cardSymbol = "Clubs";
-            break;
-         case "D":
-            this.cardSymbol = "Diamonds";
-            break;
-         case "H":
-            this.cardSymbol = "Hearts";
-            break;
-         case "S":
-            this.cardSymbol = "Spades";
+        
+        
+        if( this.cardType.equals("Jack") || this.cardType.equals("King") || this.cardType.equals("Queen")) {
+        	
+        	this.cardValue = 10;
+        	
+        } else if (this.cardType.equals("Ace")) {
+        	this.cardValue = 11;
+        	
+        } else {
+        	
+        	this.cardValue = Integer.valueOf(rank);
+        	
         }
+        
+        
     }
 
     public int getCardValue() {
