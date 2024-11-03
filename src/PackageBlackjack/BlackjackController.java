@@ -6,8 +6,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+
 
 public class BlackjackController {
 
@@ -15,10 +19,11 @@ public class BlackjackController {
 	
 	//Preparing the playing card deck for use
 	ArrayList<Card> allPlayingCards = new ArrayList<Card>();
-	String[] suits = {"Spades", "Hearts", "Diamonds", "Clubs"};
-    String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+	final String[] suits = {"Spades", "Hearts", "Diamonds", "Clubs"};
+    final String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
     
-    
+    private static final int cardWidth = 100;
+    private static final int cardHeight = 140;
  
 	
 	Player player = new Player();
@@ -27,6 +32,8 @@ public class BlackjackController {
     int wins = 0;
     boolean giveUp = false;
     
+    @FXML
+    private ImageView cardViewTest;
     
     @FXML
     private Label dealerTotal;
@@ -40,6 +47,12 @@ public class BlackjackController {
     @FXML
     private Label playerTotal;
 
+    @FXML
+    private HBox playerVisualDeck;
+    
+    @FXML
+    private HBox dealerVisualDeck;
+    
     @FXML
     private Button standButton;
 
@@ -80,9 +93,11 @@ public class BlackjackController {
 		
 		//Adds the card to your deck
 		player.addCard(playerNewCard.cardSymbol,playerNewCard.cardType);
+		addCardImage(playerVisualDeck, playerNewCard);
     	
 		//Displays what card you pulled in both UI and console
-    	cardInfoDisplay.setText( "You pulled a " + playerNewCard.getCardType() + " of " + playerNewCard.getCardSymbol() );
+    	//cardInfoDisplay.setText( "You pulled a " + playerNewCard.getCardType() + " of " + playerNewCard.getCardSymbol() );
+		
     	System.out.printf("\n%s %s %d\n",playerNewCard.getCardType(),playerNewCard.getCardSymbol(),player.getScore());
     	
     	//Changes player's score in UI
@@ -181,6 +196,7 @@ public class BlackjackController {
     		allPlayingCards.remove(dealerNewCardIndex);
     		
     		dealer.addCard(dealerNewCard.cardSymbol, dealerNewCard.cardType);
+    		addCardImage(dealerVisualDeck,dealerNewCard);
     		
     		dealerTotal.setText(String.valueOf(dealer.getScore()));
     	}
@@ -200,6 +216,9 @@ public class BlackjackController {
     public void gameStart(){
     	
     	allPlayingCards.clear();
+    	
+    	playerVisualDeck.getChildren().clear();
+    	dealerVisualDeck.getChildren().clear();
     	
     	//Initializes the playing card deck
     	for (int i = 0; i < suits.length; i++) {
@@ -231,7 +250,9 @@ public class BlackjackController {
         player.addCard(playerFirstCard.cardSymbol,playerFirstCard.cardType);
 		player.addCard(playerSecondCard.cardSymbol,playerSecondCard.cardType);
         
-        
+		addCardImage(playerVisualDeck,playerFirstCard);
+		addCardImage(playerVisualDeck,playerSecondCard);
+		
         //Dealers First Two Cards
         int dealerFirstCardIndex = rand.nextInt(allPlayingCards.size()-1);
         int dealerSecondCardIndex = rand.nextInt(allPlayingCards.size()-1);
@@ -244,6 +265,9 @@ public class BlackjackController {
         
 		dealer.addCard(dealerFirstCard.cardSymbol,dealerFirstCard.cardType);
 		dealer.addCard(dealerSecondCard.cardSymbol,dealerSecondCard.cardType);
+		
+		addCardImage(dealerVisualDeck,dealerFirstCard);
+		addCardImage(dealerVisualDeck,dealerSecondCard);
 		
 		
 		//Console print of player's cards
@@ -265,8 +289,17 @@ public class BlackjackController {
     	}
 
     }
+    
+    public void addCardImage(HBox d, Card c) {
+    	ImageView newCardPicTest = new ImageView();
+		newCardPicTest.setFitHeight(cardHeight);
+		newCardPicTest.setFitWidth(cardWidth);
+		
+		newCardPicTest.setImage(c.cardImage);
+		d.getChildren().add(newCardPicTest);
+    }
        
 
-    }
+}
     
 

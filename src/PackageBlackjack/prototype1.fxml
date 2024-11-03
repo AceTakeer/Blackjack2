@@ -6,14 +6,13 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PackageBlackjack.BlackjackController">
+<VBox prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PackageBlackjack.BlackjackController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -56,41 +55,25 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="500.0" prefWidth="763.0" VBox.vgrow="ALWAYS">
          <children>
-            <Pane fx:id="backgroundColorPane" prefHeight="575.0" prefWidth="800.0" style="-fx-background-color: green;" />
+            <Pane fx:id="backgroundColorPane" prefHeight="575.0" prefWidth="800.0" style="-fx-background-color: green;">
+               <children>
+                  <Label fx:id="gameTitleText" layoutX="633.0" layoutY="497.0" text="Blackjack Remastered" textFill="WHITE" />
+                  <Button fx:id="startButton" layoutX="666.0" layoutY="527.0" mnemonicParsing="false" onAction="#startButtonPressed" text="START" />
+                  <HBox fx:id="playerVisualDeck" layoutX="25.0" layoutY="433.0" prefHeight="100.0" prefWidth="200.0" />
+                  <HBox fx:id="dealerVisualDeck" layoutX="25.0" layoutY="26.0" prefHeight="100.0" prefWidth="200.0" />
+               </children></Pane>
             <Label fx:id="playerTotal" layoutX="416.0" layoutY="337.0" textFill="WHITE" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="281.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../Downloads/svg_playing_cards/fronts/png_96_dpi/clubs_2.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="400.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../Downloads/svg_playing_cards/fronts/png_96_dpi/clubs_4.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="281.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../Downloads/svg_playing_cards/fronts/png_96_dpi/clubs_7.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="400.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../Downloads/svg_playing_cards/fronts/png_96_dpi/diamonds_king.png" />
-               </image>
-            </ImageView>
             <Button fx:id="giveUpButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#giveUpButtonPressed" text="Give Up" visible="false" />
             <Label fx:id="winTotalCounter" layoutX="703.0" layoutY="19.0" text="Win Total:" textFill="WHITE" />
             <Label layoutX="377.0" layoutY="177.0" text="Total:" textFill="WHITE" />
             <Label layoutX="377.0" layoutY="337.0" text="Total:" textFill="WHITE" />
-            <Pane layoutX="288.0" layoutY="336.0" prefHeight="120.0" prefWidth="207.0">
+            <Pane layoutX="288.0" layoutY="326.0" prefHeight="120.0" prefWidth="207.0">
                <children>
                   <Button fx:id="hitButton" layoutX="45.0" layoutY="40.0" mnemonicParsing="false" onAction="#hitButtonPressed" text="Hit" visible="false" />
                   <Button fx:id="standButton" layoutX="125.0" layoutY="40.0" mnemonicParsing="false" onAction="#standButtonPressed" text="Stand" visible="false" />
                </children>
             </Pane>
             <Label fx:id="dealerTotal" layoutX="416.0" layoutY="177.0" textFill="WHITE" />
-            <Button fx:id="startButton" layoutX="373.0" layoutY="522.0" mnemonicParsing="false" onAction="#startButtonPressed" text="START" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="373.0" AnchorPane.topAnchor="522.0" />
-            <Label fx:id="gameTitleText" layoutX="341.0" layoutY="480.0" text="Blackjack Remastered" textFill="WHITE" />
             <Text fx:id="cardInfoDisplay" fill="WHITE" layoutX="380.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" x="-61.0" y="42.0" />
             <Label fx:id="winTotal" layoutX="763.0" layoutY="19.0" text="0" textFill="WHITE" />
          </children>

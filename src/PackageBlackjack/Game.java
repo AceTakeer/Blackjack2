@@ -17,6 +17,9 @@ public class Game extends Application{
 		primary.show();
 	}
 	
+	public static void main(String [] args) {
+		launch(args);
+	}
 	
     
 }
