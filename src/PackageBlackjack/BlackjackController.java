@@ -2,11 +2,13 @@ package PackageBlackjack;
 
 import java.util.Random;
 import java.util.ArrayList;
+
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -31,9 +33,14 @@ public class BlackjackController {
     
     int wins = 0;
     boolean giveUp = false;
+    int betPool = 0;
+    
     
     @FXML
-    private ImageView cardViewTest;
+    private Label moneyDisplay;
+    
+    
+   
     
     @FXML
     private Label dealerTotal;
@@ -73,6 +80,29 @@ public class BlackjackController {
     
     @FXML
     private Pane backgroundColorPane;
+    
+    @FXML
+    private TextField betTextField;
+
+    @FXML
+    private Button betEnter;
+    
+    
+    public void initialize() {
+  	   moneyDisplay.setText(String.valueOf(player.getMoney()));
+     }
+    
+    
+    @FXML
+    void betEnterPressed(ActionEvent event) {
+    	System.out.println(player.getMoney());
+    	player.money -= Integer.parseInt(betTextField.getText());
+    	betPool += Integer.parseInt(betTextField.getText());
+    	moneyDisplay.setText(String.valueOf(player.getMoney()));
+    	betEnter.setVisible(false);
+    	betTextField.setVisible(false);
+    	gameStart();
+    }
    
 
 
@@ -126,13 +156,10 @@ public class BlackjackController {
     	//Hides 'title' and 'start' button
     	startButton.setVisible(false);
     	gameTitleText.setVisible(false);
-    	//shows user-end buttons
-    	hitButton.setVisible(true);
-    	giveUpButton.setVisible(true);
-    	standButton.setVisible(true);
     	
-    	//game start function ran
-    	gameStart();
+    	
+    	betTextField.setVisible(true);
+    	betEnter.setVisible(true);
     	
     }
 
@@ -176,15 +203,18 @@ public class BlackjackController {
     		gameTitleText.setText("You gave up. . . . Play Again?");
     		} else if(didPush == true) {
     		gameTitleText.setText("You pushed/Tied! Play Again?");
+    			player.money += betPool;
     		} else if(didWin == false) {
         		gameTitleText.setText("You lose! Play Again?");
         	} else {
         		gameTitleText.setText("You Win! Play Again?");
+        		player.money += betPool * 2;
         	}
     	
-    	
+    	moneyDisplay.setText(String.valueOf(player.getMoney()));
     	//'start' button text changes
     	startButton.setText("PLAY AGAIN");
+    	betPool = 0;
     }
     
     public void dealerTurn() {
@@ -214,6 +244,10 @@ public class BlackjackController {
 
 
     public void gameStart(){
+    	
+    	hitButton.setVisible(true);
+    	giveUpButton.setVisible(true);
+    	standButton.setVisible(true);
     	
     	allPlayingCards.clear();
     	
@@ -299,6 +333,7 @@ public class BlackjackController {
 		d.getChildren().add(newCardPicTest);
     }
        
+   
 
 }
     

@@ -14,9 +14,11 @@ public class Player{
     boolean isBust;
     boolean hasAce;
     boolean hasUsedAce;
+    int money;
 
     public Player(){
-        score = 0;
+        this.score = 0;
+        this.money = 100;
     }
 
 //Gets
@@ -38,6 +40,9 @@ public class Player{
     }
     public void setBust(boolean nb){
         isBust = nb;
+    }
+    public int getMoney() {
+    	return money;
     }
 
     
