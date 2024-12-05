@@ -49,22 +49,22 @@ public class Player{
 
     
     
-    public void addCard(String s, String r){
+    public void addCard(Card c){
 
         
         //Creates the card via constructor
-        Card newCard = new Card(s,r);
+        
         
         //Adds the card to the deck
-        playerDeck.add(newCard);
+        playerDeck.add(c);
         
-        if(newCard.getCardType().equals("Ace")) {
+        if(c.getCardType().equals("Ace")) {
         	hasAce = true;
         }
         
         
         //Runs if your score is over 21 and you haven't reversed an ace yet
-        if( (score + newCard.cardValue) > 21 && this.hasUsedAce == false) {
+        if( (score + c.cardValue) > 21 && this.hasUsedAce == false) {
         	
         	//Changes the first ace found
         	for (Card i : playerDeck) {
@@ -84,14 +84,14 @@ public class Player{
         
         
         //Future Ace Case Scenarios
-        if((newCard.getCardType().equals("Ace") && this.score > 11)) {
-        	newCard.cardValue = 1;
-        } else if ((newCard.getCardType().equals("Ace") && this.score < 11)) {
-        	newCard.cardValue = 11;
+        if((c.getCardType().equals("Ace") && this.score > 11)) {
+        	c.cardValue = 1;
+        } else if ((c.getCardType().equals("Ace") && this.score < 11)) {
+        	c.cardValue = 11;
         }
 
         //Adds the Cards Final Score to the Player's Score
-        score += newCard.getCardValue();
+        score += c.getCardValue();
        
         //Player will Bust if their score is higher than 21
         if(score > 21) {
@@ -105,11 +105,11 @@ public class Player{
     //resets players stats
     public void reset(){
         
-        isBust = false;
-        hasAce = false;
-        hasUsedAce = false;
-        score = 0;
-        playerDeck.clear();
+        this.isBust = false;
+        this.hasAce = false;
+        this.hasUsedAce = false;
+        this.score = 0;
+        this.playerDeck.clear();
 
     }
 
